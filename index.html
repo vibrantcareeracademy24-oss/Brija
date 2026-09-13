@@ -12,145 +12,421 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">📚</div>
+<header class="header">
+    <div class="logo">📚</div>
 
-        <div>
-            <h1>Cooky Study Time</h1>
-            <p>ધોરણ 3 માટે આનંદ સાથે અભ્યાસ</p>
+    <div>
+        <h1>Cooky Study Time</h1>
+        <p>ધોરણ 3 માટે આનંદ સાથે અભ્યાસ</p>
+    </div>
+</header>
+
+
+<section class="welcome">
+
+    <h2>🌟 Welcome to Cooky Study Time 🌟</h2>
+
+    <p>ધોરણ 3ના વિદ્યાર્થીઓ માટે મજેદાર અભ્યાસ</p>
+
+    <div class="class-badge">
+        🎒 ધોરણ 3
+    </div>
+
+</section>
+
+
+<section class="subjects">
+
+    <h2>📖 વિષયો પસંદ કરો</h2>
+
+    <div class="subject-container">
+
+        <div class="subject-card">
+            <div class="icon">📕</div>
+            <h3>ગુજરાતી</h3>
+            <p>વાંચન • લેખન • વ્યાકરણ</p>
+            <button onclick="comingSoon()">શરૂ કરો</button>
         </div>
-    </header>
 
 
-    <!-- WELCOME SECTION -->
-    <section class="welcome">
+        <div class="subject-card">
+            <div class="icon">🔢</div>
+            <h3>ગણિત</h3>
+            <p>સરવાળા • બાદબાકી • ગુણાકાર</p>
+            <button onclick="comingSoon()">શરૂ કરો</button>
+        </div>
 
-        <h2>🌟 Welcome to Cooky Study Time 🌟</h2>
+
+        <div class="subject-card">
+            <div class="icon">🔤</div>
+            <h3>English</h3>
+            <p>Words • Grammar • Reading</p>
+            <button onclick="comingSoon()">Start</button>
+        </div>
+
+
+        <!-- ENVIRONMENT -->
+        <div class="subject-card environment">
+
+            <div class="icon">🌱</div>
+
+            <h3>પર્યાવરણ</h3>
+
+            <p>પ્રકૃતિ • પ્રાણી • આપણું જીવન</p>
+
+            <button onclick="openEnvironment()">
+                🌱 પાઠ 1 શરૂ કરો
+            </button>
+
+        </div>
+
+
+        <div class="subject-card">
+            <div class="icon">🧠</div>
+            <h3>General Knowledge</h3>
+            <p>જાણો • શીખો • રમો</p>
+            <button onclick="comingSoon()">શરૂ કરો</button>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="icon">💻</div>
+            <h3>કમ્પ્યૂટર</h3>
+            <p>કમ્પ્યૂટરની મજાની દુનિયા</p>
+            <button onclick="comingSoon()">શરૂ કરો</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ENVIRONMENT WORKSHEET -->
+
+<section id="environmentWorksheet" class="worksheet-section">
+
+    <div class="worksheet-header">
+
+        <h2>🌱 ધોરણ 3 – પર્યાવરણ</h2>
+
+        <h3>પાઠ 1 – પૂનમે શું જોયું?</h3>
 
         <p>
-            ધોરણ 3ના વિદ્યાર્થીઓ માટે મફત અને મજેદાર અભ્યાસનું સ્થળ
+            નીચેના પ્રશ્નોના યોગ્ય જવાબ પસંદ કરો અને Worksheet પૂર્ણ કરો.
         </p>
 
-        <div class="class-badge">
-            🎒 ધોરણ 3
+    </div>
+
+
+    <form id="environmentForm">
+
+
+        <!-- MCQ -->
+
+        <div class="question-block">
+
+            <h3>ભાગ – 1 : યોગ્ય વિકલ્પ પસંદ કરો</h3>
+
+            <p class="instruction">
+                નીચેના દરેક પ્રશ્નના જવાબ માટે આપેલા વિકલ્પોમાંથી યોગ્ય વિકલ્પ પસંદ કરો.
+            </p>
+
+
+            <div class="question">
+                <p><b>(1)</b> નીચેનામાંથી કયું પ્રાણી પાણીમાં અને જમીન પર એમ બંને જગ્યાએ રહી શકે?</p>
+
+                <label><input type="radio" name="q1" value="A"> (A) બકરી</label>
+                <label><input type="radio" name="q1" value="B"> (B) મગર</label>
+                <label><input type="radio" name="q1" value="C"> (C) કબૂતર</label>
+                <label><input type="radio" name="q1" value="D"> (D) આપેલાં તમામ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(2)</b> પ્રાણીઓ એક જગ્યાએથી બીજી જગ્યાએ જવા માટે જુદી જુદી રીતે ……………………….. કરે છે.</p>
+
+                <label><input type="radio" name="q2" value="A"> (A) શ્વસન</label>
+                <label><input type="radio" name="q2" value="B"> (B) પાચન</label>
+                <label><input type="radio" name="q2" value="C"> (C) હલનચલન</label>
+                <label><input type="radio" name="q2" value="D"> (D) અવાજ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(3)</b> નીચેનામાંથી કોણ કૂદકા મારીને ચાલે છે?</p>
+
+                <label><input type="radio" name="q3" value="A"> (A) ચકલી</label>
+                <label><input type="radio" name="q3" value="B"> (B) ગાય</label>
+                <label><input type="radio" name="q3" value="C"> (C) માણસ</label>
+                <label><input type="radio" name="q3" value="D"> (D) સાપ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(4)</b> ....................... પેટે સરકીને ચાલે છે.</p>
+
+                <label><input type="radio" name="q4" value="A"> (A) ચકલી</label>
+                <label><input type="radio" name="q4" value="B"> (B) ગાય</label>
+                <label><input type="radio" name="q4" value="C"> (C) માખી</label>
+                <label><input type="radio" name="q4" value="D"> (D) સાપ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(5)</b> ………………………. એક સ્થાનેથી બીજા સ્થાને જવા ઊડે છે.</p>
+
+                <label><input type="radio" name="q5" value="A"> (A) જળસાપ</label>
+                <label><input type="radio" name="q5" value="B"> (B) માછલી</label>
+                <label><input type="radio" name="q5" value="C"> (C) કોયલ</label>
+                <label><input type="radio" name="q5" value="D"> (D) આપેલાં તમામ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(6)</b> ......................... ચાલીને હલનચલન કરે છે.</p>
+
+                <label><input type="radio" name="q6" value="A"> (A) દેડકો</label>
+                <label><input type="radio" name="q6" value="B"> (B) માણસ</label>
+                <label><input type="radio" name="q6" value="C"> (C) અળસિયું</label>
+                <label><input type="radio" name="q6" value="D"> (D) (A) અને (B) બંને</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(7)</b> નીચેનામાંથી કોણ આપણા ઘરમાં પણ રહે છે?</p>
+
+                <label><input type="radio" name="q7" value="A"> (A) વંદો</label>
+                <label><input type="radio" name="q7" value="B"> (B) ગરોળી</label>
+                <label><input type="radio" name="q7" value="C"> (C) મચ્છર</label>
+                <label><input type="radio" name="q7" value="D"> (D) આપેલાં તમામ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(8)</b> નીચેના પૈકી કઈ જોડ ખોટી છે?</p>
+
+                <label><input type="radio" name="q8" value="A"> (A) ચકલી – માળો</label>
+                <label><input type="radio" name="q8" value="B"> (B) સાપ – દર</label>
+                <label><input type="radio" name="q8" value="C"> (C) માછલી – પાણી</label>
+                <label><input type="radio" name="q8" value="D"> (D) માખી – દર</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(9)</b> પૂંછડી વગરનું પ્રાણી ……………………… છે.</p>
+
+                <label><input type="radio" name="q9" value="A"> (A) વરુ</label>
+                <label><input type="radio" name="q9" value="B"> (B) ચકલી</label>
+                <label><input type="radio" name="q9" value="C"> (C) માણસ</label>
+                <label><input type="radio" name="q9" value="D"> (D) ગરોળી</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(10)</b> માથે શિંગડાં ન હોય તેવાં પ્રાણીઓમાં કોનો સમાવેશ થાય છે?</p>
+
+                <label><input type="radio" name="q10" value="A"> (A) ગાય</label>
+                <label><input type="radio" name="q10" value="B"> (B) શિયાળ</label>
+                <label><input type="radio" name="q10" value="C"> (C) સાબર</label>
+                <label><input type="radio" name="q10" value="D"> (D) ભેંસ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(11)</b> ........................ હોઠથી પાણી પીવે છે.</p>
+
+                <label><input type="radio" name="q11" value="A"> (A) વાંદરો</label>
+                <label><input type="radio" name="q11" value="B"> (B) કૂતરો</label>
+                <label><input type="radio" name="q11" value="C"> (C) સિંહ</label>
+                <label><input type="radio" name="q11" value="D"> (D) (A) અને (B) બંને</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(12)</b> ............................ પાંદડાં પર વધુ જોવા મળે.</p>
+
+                <label><input type="radio" name="q12" value="A"> (A) દેડકો</label>
+                <label><input type="radio" name="q12" value="B"> (B) પોપટ</label>
+                <label><input type="radio" name="q12" value="C"> (C) ઇયળ</label>
+                <label><input type="radio" name="q12" value="D"> (D) કાગડો</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(13)</b> ........................ વૃક્ષની ડાળી ઉપર બેસેલો જોવા મળે છે.</p>
+
+                <label><input type="radio" name="q13" value="A"> (A) વાંદરો</label>
+                <label><input type="radio" name="q13" value="B"> (B) માણસ</label>
+                <label><input type="radio" name="q13" value="C"> (C) વાઘ</label>
+                <label><input type="radio" name="q13" value="D"> (D) આપેલાં તમામ</label>
+            </div>
+
+
+            <div class="question">
+                <p><b>(14)</b> થડ, જમીન અને ડાળીઓ ઉપર જોવા મળતો એક જીવ...</p>
+
+                <label><input type="radio" name="q14" value="A"> (A) કીડી</label>
+                <label><input type="radio" name="q14" value="B"> (B) પોપટ</label>
+                <label><input type="radio" name="q14" value="C"> (C) કાચિંડો</label>
+                <label><input type="radio" name="q14" value="D"> (D) તીડ</label>
+            </div>
+
         </div>
 
-    </section>
 
+        <!-- FILL IN THE BLANKS -->
 
-    <!-- SUBJECTS -->
-    <section class="subjects">
+        <div class="question-block">
 
-        <h2>📖 વિષયો પસંદ કરો</h2>
+            <h3>ભાગ – 2 : યોગ્ય શબ્દ વડે ખાલી જગ્યા પૂરો</h3>
 
-        <div class="subject-container">
-
-            <div class="subject-card gujarati">
-                <div class="icon">📕</div>
-                <h3>ગુજરાતી</h3>
-                <p>વાંચન • લેખન • વ્યાકરણ</p>
-                <button>શરૂ કરો</button>
+            <div class="question">
+                <p><b>(1)</b> ઊડી શકતાં અને ચાંચ ધરાવતાં પ્રાણીઓને __________ કહે છે.</p>
+                <input type="text" name="q15">
             </div>
 
-
-            <div class="subject-card maths">
-                <div class="icon">🔢</div>
-                <h3>ગણિત</h3>
-                <p>સરવાળા • બાદબાકી • ગુણાકાર</p>
-                <button>શરૂ કરો</button>
+            <div class="question">
+                <p><b>(2)</b> દરમાં રહેતાં અને કદમાં ખૂબ નાનાં પ્રાણીઓને __________ કહે છે.</p>
+                <input type="text" name="q16">
             </div>
 
-
-            <div class="subject-card english">
-                <div class="icon">🔤</div>
-                <h3>English</h3>
-                <p>Words • Grammar • Reading</p>
-                <button>Start</button>
+            <div class="question">
+                <p><b>(3)</b> ઝાડના મૂળના ભાગમાં દર બનાવીને રહેનાર પ્રાણી __________ છે.</p>
+                <input type="text" name="q17">
             </div>
 
-
-            <div class="subject-card environment">
-                <div class="icon">🌱</div>
-                <h3>પર્યાવરણ</h3>
-                <p>પ્રકૃતિ • પ્રાણી • આપણું જીવન</p>
-                <button>શરૂ કરો</button>
+            <div class="question">
+                <p><b>(4)</b> __________ ઝાડ પર ઊંધું લટકે છે.</p>
+                <input type="text" name="q18">
             </div>
 
-
-            <div class="subject-card gk">
-                <div class="icon">🧠</div>
-                <h3>General Knowledge</h3>
-                <p>જાણો • શીખો • રમો</p>
-                <button>શરૂ કરો</button>
+            <div class="question">
+                <p><b>(5)</b> __________ પોતાનાં બચ્ચાંને શરીરની કોથળીમાં રાખે છે.</p>
+                <input type="text" name="q19">
             </div>
 
-
-            <div class="subject-card computer">
-                <div class="icon">💻</div>
-                <h3>કમ્પ્યૂટર</h3>
-                <p>કમ્પ્યૂટરની મજાની દુનિયા</p>
-                <button>શરૂ કરો</button>
+            <div class="question">
+                <p><b>(6)</b> હાથી __________ વડે પાણી પીવે છે.</p>
+                <input type="text" name="q20">
             </div>
 
-        </div>
-
-    </section>
-
-
-    <!-- ACTIVITIES -->
-    <section class="activities">
-
-        <h2>🎮 Learning Activities</h2>
-
-        <div class="activity-container">
-
-            <div class="activity-card">
-                <span>📝</span>
-                <h3>Online Worksheet</h3>
-                <p>રમતાં રમતાં પ્રશ્નો ઉકેલો</p>
+            <div class="question">
+                <p><b>(7)</b> દીવાલના ખૂણામાં જાળું ગૂંથીને રહેનાર પ્રાણી __________ છે.</p>
+                <input type="text" name="q21">
             </div>
 
-            <div class="activity-card">
-                <span>🎯</span>
-                <h3>Quiz</h3>
-                <p>તમારું જ્ઞાન ચકાસો</p>
+            <div class="question">
+                <p><b>(8)</b> ઊધઈના રહેઠાણને __________ કહે છે.</p>
+                <input type="text" name="q22">
             </div>
 
-            <div class="activity-card">
-                <span>🎵</span>
-                <h3>Learning Audio</h3>
-                <p>સાંભળો અને શીખો</p>
+            <div class="question">
+                <p><b>(9)</b> રણમાં સવારી માટે __________ આપણને ઉપયોગી છે.</p>
+                <input type="text" name="q23">
             </div>
 
-            <div class="activity-card">
-                <span>🖼️</span>
-                <h3>Learning Pictures</h3>
-                <p>ચિત્રો દ્વારા શીખો</p>
+            <div class="question">
+                <p><b>(10)</b> __________ તળાવ કિનારે સ્થિર ઊભો રહી માછલીનો શિકાર કરે છે.</p>
+                <input type="text" name="q24">
             </div>
 
         </div>
 
-    </section>
+
+        <!-- TRUE FALSE -->
+
+        <div class="question-block">
+
+            <h3>ભાગ – 3 : સાચું કે ખોટું</h3>
+
+            <p class="instruction">
+                સાચા વિધાન માટે ✓ અને ખોટા વિધાન માટે X પસંદ કરો.
+            </p>
 
 
-    <!-- FOOTER -->
-    <footer>
+            <div class="question">
+                <p><b>(1)</b> કાચબો તળાવમાં પણ રહી શકે છે.</p>
+                <label><input type="radio" name="q25" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q25" value="false"> X ખોટું</label>
+            </div>
 
-        <h3>📚 Cooky Study Time</h3>
+            <div class="question">
+                <p><b>(2)</b> દેડકો માત્ર તળાવમાં જ જોવા મળે છે.</p>
+                <label><input type="radio" name="q26" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q26" value="false"> X ખોટું</label>
+            </div>
 
-        <p>ધોરણ 3 • Learn • Play • Grow 🌟</p>
+            <div class="question">
+                <p><b>(3)</b> દરેક પ્રાણીઓના અવાજ એકસરખા હોય છે.</p>
+                <label><input type="radio" name="q27" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q27" value="false"> X ખોટું</label>
+            </div>
 
-        <p class="copyright">
-            © 2026 Cooky Study Time
-        </p>
+            <div class="question">
+                <p><b>(4)</b> પ્રાણીઓનાં રહેઠાણમાં વિવિધતા જોવા મળે છે.</p>
+                <label><input type="radio" name="q28" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q28" value="false"> X ખોટું</label>
+            </div>
 
-    </footer>
+            <div class="question">
+                <p><b>(5)</b> ગાય અને ભેંસ હોઠથી પાણી પીતાં પ્રાણીઓ છે.</p>
+                <label><input type="radio" name="q29" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q29" value="false"> X ખોટું</label>
+            </div>
+
+            <div class="question">
+                <p><b>(6)</b> વાઘ અને સિંહ હોઠથી પાણી પીતાં પ્રાણીઓ છે.</p>
+                <label><input type="radio" name="q30" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q30" value="false"> X ખોટું</label>
+            </div>
+
+            <div class="question">
+                <p><b>(7)</b> ગાય જંગલમાં રહે છે.</p>
+                <label><input type="radio" name="q31" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q31" value="false"> X ખોટું</label>
+            </div>
+
+            <div class="question">
+                <p><b>(8)</b> બધાં જ પ્રાણીઓ ઘાસ ખાય છે.</p>
+                <label><input type="radio" name="q32" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q32" value="false"> X ખોટું</label>
+            </div>
+
+            <div class="question">
+                <p><b>(9)</b> બકરીના માથા ઉપર શિંગડાં હોય છે.</p>
+                <label><input type="radio" name="q33" value="true"> ✓ સાચું</label>
+                <label><input type="radio" name="q33" value="false"> X ખોટું</label>
+            </div>
+
+        </div>
 
 
-    <script src="script.js"></script>
+        <button type="button" class="submit-btn" onclick="checkWorksheet()">
+            ✅ Worksheet Submit કરો
+        </button>
+
+    </form>
+
+
+    <div id="result" class="result"></div>
+
+</section>
+
+
+<footer>
+
+    <h3>📚 Cooky Study Time</h3>
+
+    <p>ધોરણ 3 • Learn • Play • Grow 🌟</p>
+
+    <p>© 2026 Cooky Study Time</p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
 ```
-
