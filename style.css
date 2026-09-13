@@ -1,1 +1,278 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "Noto Sans Gujarati", sans-serif;
+    background: #f4f8ff;
+    color: #333;
+}
+
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #6c5ce7, #0984e3);
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 20px 30px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 55px;
+    margin-right: 18px;
+}
+
+.header h1 {
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    text-align: center;
+    padding: 45px 20px;
+    background: white;
+}
+
+.welcome h2 {
+    font-size: 30px;
+    color: #5f27cd;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 19px;
+    color: #555;
+}
+
+.class-badge {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    background: #ff9f43;
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+
+/* SUBJECT SECTION */
+
+.subjects {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.subjects h2 {
+    font-size: 28px;
+    color: #2d3436;
+    margin-bottom: 30px;
+}
+
+.subject-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* SUBJECT CARD */
+
+.subject-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px 18px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+}
+
+.subject-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.subject-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.subject-card p {
+    color: #666;
+    min-height: 42px;
+}
+
+.subject-card button {
+    margin-top: 15px;
+
+    border: none;
+
+    padding: 10px 25px;
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    background: #6c5ce7;
+}
+
+.subject-card button:hover {
+    opacity: 0.85;
+}
+
+
+/* ACTIVITY */
+
+.activities {
+    padding: 40px 20px;
+    background: #eef3ff;
+
+    text-align: center;
+}
+
+.activities h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.activity-container {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 20px;
+}
+
+.activity-card {
+    background: white;
+
+    padding: 25px 15px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.activity-card:hover {
+    transform: scale(1.04);
+}
+
+.activity-card span {
+    font-size: 42px;
+}
+
+.activity-card h3 {
+    margin: 10px 0;
+    color: #5f27cd;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    background: #2d3436;
+
+    color: white;
+}
+
+footer h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+footer p {
+    margin: 6px;
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 42px;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .welcome h2 {
+        font-size: 23px;
+    }
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+    .subjects h2,
+    .activities h2 {
+        font-size: 23px;
+    }
+}
+```
 
