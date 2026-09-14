@@ -1,22 +1,20 @@
-```javascript
-console.log("Cooky Study Time - Grade 3 Website Loaded!");
+/* =====================================================
+   COOKY STUDY TIME
+   STANDARD 3
+   ENVIRONMENT WORKSHEET
+   ===================================================== */
+
+console.log("Cooky Study Time - script.js loaded successfully.");
 
 
-// =====================================================
-// ENVIRONMENT WORKSHEET
-// LESSON 1 - POONAME SHU JOYU?
-// =====================================================
 
-
-// ================================
-// સાચા જવાબો
-// ================================
+/* =====================================================
+   CORRECT ANSWERS
+   ===================================================== */
 
 const answers = {
 
-    // ----------------------------
-    // MCQ - Q1 to Q14
-    // ----------------------------
+    /* MCQ */
 
     q1: "B",
     q2: "C",
@@ -34,34 +32,58 @@ const answers = {
     q14: "A",
 
 
-    // ----------------------------
-    // ખાલી જગ્યા - Q15 to Q24
-    // ----------------------------
+    /* FILL IN THE BLANKS */
 
-    q15: ["પક્ષી", "પક્ષીઓને"],
+    q15: [
+        "પક્ષી",
+        "પક્ષીઓને"
+    ],
 
-    q16: ["ઉંદર", "ઉંદરો"],
+    q16: [
+        "ઉંદર",
+        "ઉંદરો"
+    ],
 
-    q17: ["સસલું", "સસલો"],
+    q17: [
+        "સસલું",
+        "સસલો"
+    ],
 
-    q18: ["વાંદરો"],
+    q18: [
+        "વાંદરો"
+    ],
 
-    q19: ["કાંગારું", "કાંગારુ"],
+    q19: [
+        "કાંગારું",
+        "કાંગારુ"
+    ],
 
-    q20: ["સૂંઢ", "સુંઢ"],
+    q20: [
+        "સૂંઢ",
+        "સુંઢ"
+    ],
 
-    q21: ["કરોળિયો", "કરોળિયા"],
+    q21: [
+        "કરોળિયો",
+        "કરોળિયા"
+    ],
 
-    q22: ["ઉધઈનો રાફડો", "રાફડો"],
+    q22: [
+        "ઉધઈનો રાફડો",
+        "રાફડો"
+    ],
 
-    q23: ["ઊંટ", "ઉંટ"],
+    q23: [
+        "ઊંટ",
+        "ઉંટ"
+    ],
 
-    q24: ["બગલો"],
+    q24: [
+        "બગલો"
+    ],
 
 
-    // ----------------------------
-    // સાચું / ખોટું - Q25 to Q33
-    // ----------------------------
+    /* TRUE / FALSE */
 
     q25: "true",
     q26: "false",
@@ -76,9 +98,10 @@ const answers = {
 };
 
 
-// =====================================================
-// HOME PAGE
-// =====================================================
+
+/* =====================================================
+   OPEN ENVIRONMENT WORKSHEET
+   ===================================================== */
 
 function openEnvironment() {
 
@@ -87,23 +110,30 @@ function openEnvironment() {
 
     if (!worksheet) {
 
-        alert("Worksheet section મળ્યો નથી.");
+        alert(
+            "Worksheet section મળ્યો નથી.\n\n" +
+            "કૃપા કરીને index.html તપાસો."
+        );
 
         return;
     }
 
+
     worksheet.style.display = "block";
 
+
     worksheet.scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "start"
     });
 
 }
 
 
-// =====================================================
-// COMING SOON
-// =====================================================
+
+/* =====================================================
+   OTHER SUBJECTS
+   ===================================================== */
 
 function comingSoon() {
 
@@ -114,17 +144,22 @@ function comingSoon() {
 }
 
 
-// =====================================================
-// ANSWER CLEANING
-// =====================================================
+
+/* =====================================================
+   CLEAN ANSWER
+   ===================================================== */
 
 function cleanAnswer(value) {
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
 
         return "";
 
     }
+
 
     return String(value)
         .trim()
@@ -134,15 +169,23 @@ function cleanAnswer(value) {
 }
 
 
-// =====================================================
-// CHECK ONE ANSWER
-// =====================================================
 
-function isCorrectAnswer(questionName, userAnswer) {
+/* =====================================================
+   CHECK ANSWER
+   ===================================================== */
 
-    const correctAnswers = answers[questionName];
+function isCorrectAnswer(
+    questionName,
+    userAnswer
+) {
 
-    if (correctAnswers === undefined) {
+    const correctAnswers =
+        answers[questionName];
+
+
+    if (
+        correctAnswers === undefined
+    ) {
 
         return false;
 
@@ -153,7 +196,6 @@ function isCorrectAnswer(questionName, userAnswer) {
         cleanAnswer(userAnswer);
 
 
-    // જો જવાબ જ ન આપ્યો હોય
     if (user === "") {
 
         return false;
@@ -161,34 +203,48 @@ function isCorrectAnswer(questionName, userAnswer) {
     }
 
 
-    // જો ઘણા સાચા જવાબ હોય
-    if (Array.isArray(correctAnswers)) {
+    /* Multiple acceptable answers */
 
-        return correctAnswers.some(function(answer) {
+    if (
+        Array.isArray(correctAnswers)
+    ) {
 
-            return cleanAnswer(answer) === user;
+        return correctAnswers.some(
+            function(answer) {
 
-        });
+                return (
+                    cleanAnswer(answer) === user
+                );
+
+            }
+        );
 
     }
 
 
-    // જો એક જ સાચો જવાબ હોય
-    return cleanAnswer(correctAnswers) === user;
+    /* Single answer */
+
+    return (
+        cleanAnswer(correctAnswers) === user
+    );
 
 }
 
 
-// =====================================================
-// GET RADIO ANSWER
-// =====================================================
+
+/* =====================================================
+   GET RADIO ANSWER
+   ===================================================== */
 
 function getRadioAnswer(questionName) {
 
     const selected =
         document.querySelector(
-            'input[name="' + questionName + '"]:checked'
+            'input[name="' +
+            questionName +
+            '"]:checked'
         );
+
 
     if (!selected) {
 
@@ -196,21 +252,26 @@ function getRadioAnswer(questionName) {
 
     }
 
+
     return selected.value;
 
 }
 
 
-// =====================================================
-// GET TEXT ANSWER
-// =====================================================
+
+/* =====================================================
+   GET TEXT ANSWER
+   ===================================================== */
 
 function getTextAnswer(questionName) {
 
     const input =
         document.querySelector(
-            'input[name="' + questionName + '"]'
+            'input[name="' +
+            questionName +
+            '"]'
         );
+
 
     if (!input) {
 
@@ -218,16 +279,23 @@ function getTextAnswer(questionName) {
 
     }
 
+
     return input.value;
 
 }
 
 
-// =====================================================
-// CHECK WORKSHEET
-// =====================================================
+
+/* =====================================================
+   MAIN WORKSHEET FUNCTION
+   ===================================================== */
 
 function checkWorksheet() {
+
+    console.log(
+        "checkWorksheet() started..."
+    );
+
 
     try {
 
@@ -238,21 +306,34 @@ function checkWorksheet() {
         const total = 33;
 
 
-        // =================================================
-        // Q1 to Q14 - MCQ
-        // =================================================
 
-        for (let i = 1; i <= 14; i++) {
+        /* =============================================
+           QUESTIONS 1 TO 14
+           MCQ
+        ============================================= */
 
-            const questionName = "q" + i;
+        for (
+            let i = 1;
+            i <= 14;
+            i++
+        ) {
+
+            const questionName =
+                "q" + i;
+
 
             const userAnswer =
-                getRadioAnswer(questionName);
+                getRadioAnswer(
+                    questionName
+                );
 
 
-            if (userAnswer !== "") {
+            if (
+                userAnswer !== ""
+            ) {
 
                 attempted++;
+
 
                 if (
                     isCorrectAnswer(
@@ -270,21 +351,34 @@ function checkWorksheet() {
         }
 
 
-        // =================================================
-        // Q15 to Q24 - FILL IN THE BLANKS
-        // =================================================
 
-        for (let i = 15; i <= 24; i++) {
+        /* =============================================
+           QUESTIONS 15 TO 24
+           TEXT
+        ============================================= */
 
-            const questionName = "q" + i;
+        for (
+            let i = 15;
+            i <= 24;
+            i++
+        ) {
+
+            const questionName =
+                "q" + i;
+
 
             const userAnswer =
-                getTextAnswer(questionName);
+                getTextAnswer(
+                    questionName
+                );
 
 
-            if (cleanAnswer(userAnswer) !== "") {
+            if (
+                cleanAnswer(userAnswer) !== ""
+            ) {
 
                 attempted++;
+
 
                 if (
                     isCorrectAnswer(
@@ -302,21 +396,34 @@ function checkWorksheet() {
         }
 
 
-        // =================================================
-        // Q25 to Q33 - TRUE / FALSE
-        // =================================================
 
-        for (let i = 25; i <= 33; i++) {
+        /* =============================================
+           QUESTIONS 25 TO 33
+           TRUE / FALSE
+        ============================================= */
 
-            const questionName = "q" + i;
+        for (
+            let i = 25;
+            i <= 33;
+            i++
+        ) {
+
+            const questionName =
+                "q" + i;
+
 
             const userAnswer =
-                getRadioAnswer(questionName);
+                getRadioAnswer(
+                    questionName
+                );
 
 
-            if (userAnswer !== "") {
+            if (
+                userAnswer !== ""
+            ) {
 
                 attempted++;
+
 
                 if (
                     isCorrectAnswer(
@@ -334,9 +441,10 @@ function checkWorksheet() {
         }
 
 
-        // =================================================
-        // PERCENTAGE
-        // =================================================
+
+        /* =============================================
+           PERCENTAGE
+        ============================================= */
 
         const percentage =
             Math.round(
@@ -344,21 +452,26 @@ function checkWorksheet() {
             );
 
 
-        // =================================================
-        // MESSAGE
-        // =================================================
+
+        /* =============================================
+           MESSAGE
+        ============================================= */
 
         let message = "";
 
 
-        if (percentage >= 80) {
+        if (
+            percentage >= 80
+        ) {
 
             message =
                 "🌟 ખૂબ સરસ! તમારો અભ્યાસ ખૂબ સારો છે.";
 
         }
 
-        else if (percentage >= 50) {
+        else if (
+            percentage >= 50
+        ) {
 
             message =
                 "👏 સરસ પ્રયત્ન! થોડો વધુ અભ્યાસ કરો.";
@@ -373,18 +486,22 @@ function checkWorksheet() {
         }
 
 
-        // =================================================
-        // RESULT BOX
-        // =================================================
+
+        /* =============================================
+           RESULT BOX
+        ============================================= */
 
         const result =
-            document.getElementById("result");
+            document.getElementById(
+                "result"
+            );
 
 
         if (!result) {
 
             alert(
-                "Result box મળ્યો નથી. HTML માં id=\"result\" તપાસો."
+                'Result box મળ્યો નથી.\n\n' +
+                'index.html માં id="result" તપાસો.'
             );
 
             return;
@@ -392,37 +509,66 @@ function checkWorksheet() {
         }
 
 
+
+        /* =============================================
+           SHOW RESULT
+        ============================================= */
+
         result.innerHTML = `
 
             <div class="result-box">
 
-                <h2>🎉 Worksheet પૂર્ણ!</h2>
+                <h2>
+                    🎉 Worksheet પૂર્ણ!
+                </h2>
+
 
                 <p class="score">
+
                     તમારો સ્કોર:
-                    <strong>${score} / ${total}</strong>
+
+                    <strong>
+                        ${score} / ${total}
+                    </strong>
+
                 </p>
 
+
                 <p>
+
                     Percentage:
-                    <strong>${percentage}%</strong>
+
+                    <strong>
+                        ${percentage}%
+                    </strong>
+
                 </p>
 
+
                 <p>
+
                     તમે
-                    <strong>${attempted}</strong>
+
+                    <strong>
+                        ${attempted}
+                    </strong>
+
                     પ્રશ્નોના જવાબ આપ્યા.
+
                 </p>
+
 
                 <h3>
                     ${message}
                 </h3>
 
+
                 <button
                     type="button"
-                    onclick="location.reload()"
-                >
+                    onclick="location.reload()">
+
                     🔄 ફરીથી પ્રયાસ કરો
+
                 </button>
 
             </div>
@@ -430,9 +576,10 @@ function checkWorksheet() {
         `;
 
 
-        // =================================================
-        // RESULT સુધી SCROLL
-        // =================================================
+
+        /* =============================================
+           SCROLL TO RESULT
+        ============================================= */
 
         result.scrollIntoView({
 
@@ -441,6 +588,19 @@ function checkWorksheet() {
             block: "center"
 
         });
+
+
+        console.log(
+            "Worksheet completed successfully."
+        );
+
+        console.log(
+            "Score:",
+            score,
+            "/",
+            total
+        );
+
 
 
     }
@@ -454,10 +614,27 @@ function checkWorksheet() {
 
 
         alert(
-            "Worksheet Submit કરતી વખતે સમસ્યા આવી છે. કૃપા કરીને ફરી પ્રયાસ કરો."
+            "Worksheet Submit કરતી વખતે સમસ્યા આવી છે.\n\n" +
+            "કૃપા કરીને ફરી પ્રયાસ કરો."
         );
 
     }
 
 }
-```
+
+
+
+/* =====================================================
+   PAGE LOAD TEST
+   ===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        console.log(
+            "Cooky Study Time page is ready."
+        );
+
+    }
+);
