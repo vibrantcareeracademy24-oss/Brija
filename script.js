@@ -1,18 +1,23 @@
 ```javascript
 console.log("Cooky Study Time - Grade 3 Website Loaded!");
 
-alert("JavaScript ચાલુ છે!");
 
-// ================================
+// =====================================================
 // ENVIRONMENT WORKSHEET
 // LESSON 1 - POONAME SHU JOYU?
+// =====================================================
+
+
+// ================================
+// સાચા જવાબો
 // ================================
 
-
-// સાચા જવાબો
 const answers = {
 
-    // MCQ
+    // ----------------------------
+    // MCQ - Q1 to Q14
+    // ----------------------------
+
     q1: "B",
     q2: "C",
     q3: "A",
@@ -28,19 +33,36 @@ const answers = {
     q13: "A",
     q14: "A",
 
-    // ખાલી જગ્યા
-    q15: ["પક્ષી", "પક્ષીઓને"],
-    q16: ["ઉંદર", "ઉંદરો"],
-    q17: ["સસલું", "સસલો"],
-    q18: ["વાંદરો", "વાંદરો"],
-    q19: ["કાંગારું", "કાંગારુ"],
-    q20: ["સૂંઢ", "સુંઢ"],
-    q21: ["કરોળિયો", "કરોળિયા"],
-    q22: ["ઉધઈનો રાફડો", "રાફડો", "રાફડો"],
-    q23: ["ઊંટ", "ઉંટ"],
-    q24: ["બગલો", "બગલો"],
 
-    // સાચું / ખોટું
+    // ----------------------------
+    // ખાલી જગ્યા - Q15 to Q24
+    // ----------------------------
+
+    q15: ["પક્ષી", "પક્ષીઓને"],
+
+    q16: ["ઉંદર", "ઉંદરો"],
+
+    q17: ["સસલું", "સસલો"],
+
+    q18: ["વાંદરો"],
+
+    q19: ["કાંગારું", "કાંગારુ"],
+
+    q20: ["સૂંઢ", "સુંઢ"],
+
+    q21: ["કરોળિયો", "કરોળિયા"],
+
+    q22: ["ઉધઈનો રાફડો", "રાફડો"],
+
+    q23: ["ઊંટ", "ઉંટ"],
+
+    q24: ["બગલો"],
+
+
+    // ----------------------------
+    // સાચું / ખોટું - Q25 to Q33
+    // ----------------------------
+
     q25: "true",
     q26: "false",
     q27: "false",
@@ -50,114 +72,194 @@ const answers = {
     q31: "false",
     q32: "false",
     q33: "true"
+
 };
 
 
-// ================================
+// =====================================================
 // HOME PAGE
-// ================================
+// =====================================================
 
 function openEnvironment() {
 
-    const worksheet = document.getElementById("environmentWorksheet");
+    const worksheet =
+        document.getElementById("environmentWorksheet");
+
+    if (!worksheet) {
+
+        alert("Worksheet section મળ્યો નથી.");
+
+        return;
+    }
 
     worksheet.style.display = "block";
 
     worksheet.scrollIntoView({
         behavior: "smooth"
     });
+
 }
 
 
-// ================================
+// =====================================================
 // COMING SOON
-// ================================
+// =====================================================
 
 function comingSoon() {
 
-    alert("આ વિષયની Worksheet ટૂંક સમયમાં ઉપલબ્ધ થશે. 😊");
+    alert(
+        "આ વિષયની Worksheet ટૂંક સમયમાં ઉપલબ્ધ થશે. 😊"
+    );
 
 }
 
 
-// ================================
-// CHECK WORKSHEET
-// ================================
+// =====================================================
+// ANSWER CLEANING
+// =====================================================
 
-function checkWorksheet() {
+function cleanAnswer(value) {
 
-    let score = 0;
+    if (value === null || value === undefined) {
 
-    let attempted = 0;
+        return "";
 
-    const total = 33;
+    }
+
+    return String(value)
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+
+}
 
 
-    // ============================
-    // MCQ + TRUE/FALSE
-    // ============================
+// =====================================================
+// CHECK ONE ANSWER
+// =====================================================
 
-    for (let i = 1; i <= 14; i++) {
+function isCorrectAnswer(questionName, userAnswer) {
 
-        const selected = document.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
+    const correctAnswers = answers[questionName];
 
-        if (selected) {
+    if (correctAnswers === undefined) {
 
-            attempted++;
-
-            if (selected.value === answers["q" + i]) {
-
-                score++;
-
-            }
-
-        }
+        return false;
 
     }
 
 
-    // ============================
-    // FILL IN THE BLANKS
-    // ============================
+    const user =
+        cleanAnswer(userAnswer);
 
-    for (let i = 15; i <= 24; i++) {
 
-        const input = document.querySelector(
-            'input[name="q' + i + '"]'
+    // જો જવાબ જ ન આપ્યો હોય
+    if (user === "") {
+
+        return false;
+
+    }
+
+
+    // જો ઘણા સાચા જવાબ હોય
+    if (Array.isArray(correctAnswers)) {
+
+        return correctAnswers.some(function(answer) {
+
+            return cleanAnswer(answer) === user;
+
+        });
+
+    }
+
+
+    // જો એક જ સાચો જવાબ હોય
+    return cleanAnswer(correctAnswers) === user;
+
+}
+
+
+// =====================================================
+// GET RADIO ANSWER
+// =====================================================
+
+function getRadioAnswer(questionName) {
+
+    const selected =
+        document.querySelector(
+            'input[name="' + questionName + '"]:checked'
         );
 
-        if (input) {
+    if (!selected) {
 
-            const userAnswer = input.value
-                .trim()
-                .toLowerCase();
+        return "";
+
+    }
+
+    return selected.value;
+
+}
+
+
+// =====================================================
+// GET TEXT ANSWER
+// =====================================================
+
+function getTextAnswer(questionName) {
+
+    const input =
+        document.querySelector(
+            'input[name="' + questionName + '"]'
+        );
+
+    if (!input) {
+
+        return "";
+
+    }
+
+    return input.value;
+
+}
+
+
+// =====================================================
+// CHECK WORKSHEET
+// =====================================================
+
+function checkWorksheet() {
+
+    try {
+
+        let score = 0;
+
+        let attempted = 0;
+
+        const total = 33;
+
+
+        // =================================================
+        // Q1 to Q14 - MCQ
+        // =================================================
+
+        for (let i = 1; i <= 14; i++) {
+
+            const questionName = "q" + i;
+
+            const userAnswer =
+                getRadioAnswer(questionName);
+
 
             if (userAnswer !== "") {
 
                 attempted++;
 
-                const correctAnswers = answers["q" + i];
-
-                let correct = false;
-
-                for (let answer of correctAnswers) {
-
-                    if (
-                        userAnswer === answer
-                        .trim()
-                        .toLowerCase()
-                    ) {
-
-                        correct = true;
-                        break;
-
-                    }
-
-                }
-
-                if (correct) {
+                if (
+                    isCorrectAnswer(
+                        questionName,
+                        userAnswer
+                    )
+                ) {
 
                     score++;
 
@@ -167,97 +269,195 @@ function checkWorksheet() {
 
         }
 
-    }
+
+        // =================================================
+        // Q15 to Q24 - FILL IN THE BLANKS
+        // =================================================
+
+        for (let i = 15; i <= 24; i++) {
+
+            const questionName = "q" + i;
+
+            const userAnswer =
+                getTextAnswer(questionName);
 
 
-    // ============================
-    // TRUE / FALSE
-    // ============================
+            if (cleanAnswer(userAnswer) !== "") {
 
-    for (let i = 25; i <= 33; i++) {
+                attempted++;
 
-        const selected = document.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
+                if (
+                    isCorrectAnswer(
+                        questionName,
+                        userAnswer
+                    )
+                ) {
 
-        if (selected) {
+                    score++;
 
-            attempted++;
-
-            if (selected.value === answers["q" + i]) {
-
-                score++;
+                }
 
             }
 
         }
 
+
+        // =================================================
+        // Q25 to Q33 - TRUE / FALSE
+        // =================================================
+
+        for (let i = 25; i <= 33; i++) {
+
+            const questionName = "q" + i;
+
+            const userAnswer =
+                getRadioAnswer(questionName);
+
+
+            if (userAnswer !== "") {
+
+                attempted++;
+
+                if (
+                    isCorrectAnswer(
+                        questionName,
+                        userAnswer
+                    )
+                ) {
+
+                    score++;
+
+                }
+
+            }
+
+        }
+
+
+        // =================================================
+        // PERCENTAGE
+        // =================================================
+
+        const percentage =
+            Math.round(
+                (score / total) * 100
+            );
+
+
+        // =================================================
+        // MESSAGE
+        // =================================================
+
+        let message = "";
+
+
+        if (percentage >= 80) {
+
+            message =
+                "🌟 ખૂબ સરસ! તમારો અભ્યાસ ખૂબ સારો છે.";
+
+        }
+
+        else if (percentage >= 50) {
+
+            message =
+                "👏 સરસ પ્રયત્ન! થોડો વધુ અભ્યાસ કરો.";
+
+        }
+
+        else {
+
+            message =
+                "💪 ફરી પ્રયત્ન કરો. તમે ચોક્કસ સારું કરી શકશો.";
+
+        }
+
+
+        // =================================================
+        // RESULT BOX
+        // =================================================
+
+        const result =
+            document.getElementById("result");
+
+
+        if (!result) {
+
+            alert(
+                "Result box મળ્યો નથી. HTML માં id=\"result\" તપાસો."
+            );
+
+            return;
+
+        }
+
+
+        result.innerHTML = `
+
+            <div class="result-box">
+
+                <h2>🎉 Worksheet પૂર્ણ!</h2>
+
+                <p class="score">
+                    તમારો સ્કોર:
+                    <strong>${score} / ${total}</strong>
+                </p>
+
+                <p>
+                    Percentage:
+                    <strong>${percentage}%</strong>
+                </p>
+
+                <p>
+                    તમે
+                    <strong>${attempted}</strong>
+                    પ્રશ્નોના જવાબ આપ્યા.
+                </p>
+
+                <h3>
+                    ${message}
+                </h3>
+
+                <button
+                    type="button"
+                    onclick="location.reload()"
+                >
+                    🔄 ફરીથી પ્રયાસ કરો
+                </button>
+
+            </div>
+
+        `;
+
+
+        // =================================================
+        // RESULT સુધી SCROLL
+        // =================================================
+
+        result.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+
     }
 
+    catch (error) {
 
-    // ============================
-    // RESULT
-    // ============================
-
-    const percentage = Math.round(
-        (score / total) * 100
-    );
+        console.error(
+            "Worksheet Error:",
+            error
+        );
 
 
-    let message = "";
-
-    if (percentage >= 80) {
-
-        message = "🌟 ખૂબ સરસ! તમારો અભ્યાસ ખૂબ સારો છે.";
-
-    } else if (percentage >= 50) {
-
-        message = "👏 સરસ પ્રયત્ન! થોડો વધુ અભ્યાસ કરો.";
-
-    } else {
-
-        message = "💪 ફરી પ્રયત્ન કરો. તમે ચોક્કસ સારું કરી શકશો.";
+        alert(
+            "Worksheet Submit કરતી વખતે સમસ્યા આવી છે. કૃપા કરીને ફરી પ્રયાસ કરો."
+        );
 
     }
-
-
-    const result = document.getElementById("result");
-
-
-    result.innerHTML = `
-
-        <div class="result-box">
-
-            <h2>🎉 Worksheet પૂર્ણ!</h2>
-
-            <p class="score">
-                તમારો સ્કોર:
-                <strong>${score} / ${total}</strong>
-            </p>
-
-            <p>
-                Percentage:
-                <strong>${percentage}%</strong>
-            </p>
-
-            <p>
-                તમે ${attempted} પ્રશ્નોના જવાબ આપ્યા.
-            </p>
-
-            <h3>${message}</h3>
-
-            <button onclick="location.reload()">
-                🔄 ફરીથી પ્રયાસ કરો
-            </button>
-
-        </div>
-
-    `;
-
-
-    result.scrollIntoView({
-        behavior: "smooth"
-    });
 
 }
 ```
